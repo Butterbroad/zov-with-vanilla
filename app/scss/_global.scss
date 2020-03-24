@@ -1,0 +1,158 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+body.lock {
+    overflow: hidden !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1450px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+input {
+    position: relative;
+    font-size: 18px;
+
+    &:focus {
+        &::placeholder {
+            visibility: hidden;
+            font-size: 0;
+        }
+    }
+}
+
+input,
+select {
+    outline: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+input::-ms-clear { 
+    display: none; 
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 64px;
+    line-height: 130%;
+    color: $blue;
+    font-weight: 700;
+    text-align: center;
+}
+
+.subtitle {
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 130%;
+    text-align: center;
+    color: $blue;
+}
+
+.tel-input,
+.name-input {
+    position: relative;
+
+    &__label {
+        position: absolute;
+        top: 5px;
+        left: 23px;
+        font-size: 13px;
+        line-height: 80%;
+        color: $yellow;
+        background-color: #fff;
+        padding: 0 3px;
+        display: none;
+    }
+
+    &__field {
+        &:focus {
+            border-color: $yellow;
+
+            &+.tel-input__label {
+                display: block;
+            }
+
+            &+.name-input__label {
+                display: block;
+            }
+        }
+    }
+}
+
+.tel-input__field {
+    &.error {
+        border-color: #FF0000;
+
+        &+.tel-input__label {
+            color: #FF0000;
+            display: block;
+        }
+    }
+}
+
+.error {
+    color: #FF0000;
+
+}
+
+#tel-error {
+    position: absolute;
+    font-size: 13px;
+    line-height: 80%;
+    top: 105%;
+    left: 0;
+}
+
+.catalog__get-input {
+    &+#tel-error {
+        top: 120%;
+    }
+}
+
+.tel-input__label {
+    z-index: 50;
+}
+.calc-form__tel {
+    #tel-error {
+        top: 58px;
+    }
+}
